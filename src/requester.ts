@@ -1,7 +1,7 @@
 import { AxiosError, AxiosResponse } from 'axios';
 import { get } from 'lodash';
 
-class API {
+class Requester {
   private _accessToken: string;
 
   set accessToken(value: string) {
@@ -34,4 +34,4 @@ class API {
   };
 }
 
-export const api = new API();
+export const requester = new Requester();

@@ -1,10 +1,10 @@
-name: Refresh
+name: Schedule Booking
 
 on:
   workflow_dispatch:
-  # schedule:
-  # This job runs at 17:00 UTC everyday
-  # - cron: '0 17 * * *'
+  schedule:
+    # This job runs at 17:00 UTC everyday
+    - cron: '0 17 * * *'
 
 jobs:
   run:
@@ -27,7 +27,12 @@ jobs:
       - name: Run main
         run: npm run start
         env:
-          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+          DATA: ${{ secrets.DATA }}
+          GITHUB_USERNAME: "Nam Dam"
+          GITHUB_EMAIL: "namqdam@gmail.com"
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${GITHUB_REPOSITORY}
+          GITHUB_SERVER_URL: ${GITHUB_SERVER_URL}
 
       - name: Keep Alive
         uses: gautamkrishnar/keepalive-workflow@v1
